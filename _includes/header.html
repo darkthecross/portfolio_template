@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark mb-4">
+
+    {%- assign ti = site.static_files | where: "name", "favicon.png" -%}
+    {%- if ti.size > 0 -%}
+        <a class="navbar-brand" href="/"><img class="navbar-logo" src=" {{ ti[0].path }} "/> &nbsp; darkthecross workshop</a>
+    {%- else -%}
+        <a class="navbar-brand" href="/"><img class="navbar-logo" src=" favicon.png "/> &nbsp; darkthecross workshop</a>
+    {%- endif -%}
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        {%- assign ac = " active" -%}
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link {%- if page.title=="darkthecross workshop" -%} {{ac}} {%- endif -%} " href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {%- if page.title=="Computer Vision and Machine Learning" -%} {{ac}} {%- endif -%} " href="/cvnml/"> CV&ML </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {%- if page.title=="Robotics" -%} {{ac}} {%- endif -%} " href="/robotics/"> Robotics </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {%- if page.title=="Casual" -%} {{ac}} {%- endif -%} " href="/casual/"> Casual </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {%- if page.title=="about" -%} {{ac}} {%- endif -%} " href="/about/">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
