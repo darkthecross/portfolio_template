@@ -1,0 +1,57 @@
+.jumbotron {
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    height: auto !important;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 3.5rem;
+}
+
+/* Move down the main contents of the page to leave space for navbar */
+.post-container {
+    padding: 30px;
+    margin-top: 80px;
+}
+
+.index-container {
+    margin-top: 80px;
+}
+
+.navbar-logo {
+    width: 30px;
+    height: 30px;
+}
+
+#author-img {
+    width: auto;
+}
+
+.logo-img {
+    max-height: 30px;
+}
+
+.project-card {
+    min-height: 300px;
+}
+
+.project-img {
+    max-width: 300px;
+}
+
+#nav-bar{
+    height: 50px;
+}
+
+/* Navbar animation. */
+.nav-show {
+    margin-top: 0px;
+    transition: 0.4s;
+}
+
+.nav-hidden {
+    margin-top: -60px;
+    transition: 0.4s;
+}
