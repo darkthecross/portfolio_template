@@ -1,17 +1,20 @@
-<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark mb-4" id="nav-bar">
+<nav class="navbar navbar-expand-sm fixed-top navbar-light mb-4 flex-row" id="nav-bar">
 
+  <div class="navbar-brand w-100 ml-0 mr-auto">
   {%- assign ti = site.static_files | where: "name", "favicon.png" -%}
   {%- if ti.size > 0 -%}
   <a class="navbar-brand" href="/"><img class="navbar-logo" src=" {{ ti[0].path }} " /> &nbsp; Portfolio</a>
   {%- else -%}
   <a class="navbar-brand" href="/"><img class="navbar-logo" src=" favicon.png " /> &nbsp; Portfolio</a>
   {%- endif -%}
+  </div>
 
-  <div class="collapse navbar-collapse" id="navbarCollapse">
+  <div class="navbar-collapse collapse navbar-collapse ml-auto" id="navbarCollapse">
+    <!-- active: highlight current page -->
     {%- assign ac = " active" -%}
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link {%- if page.title=='darkthecross workshop' -%} {{ac}} {%- endif -%} " href="/">Home</a>
+        <a class="nav-link {%- if page.title=='index' -%} {{ac}} {%- endif -%} " href="/">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link {%- if page.title=='about' -%} {{ac}} {%- endif -%} " href="/about/">About</a>

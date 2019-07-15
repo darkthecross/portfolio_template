@@ -2,27 +2,45 @@
 layout: default
 ---
 
+<!-- Title image -->
+{%- assign ti = site.static_files | where: "name", page.title-image -%} {%- if ti.size > 0 -%}
+<div class="jumbotron jumbotron-fluid" style="background-image: url({{ti[0].path}});">
+    <div class="container">
+        <h1 class="display-5"> {{ site.title }} </h1>
+        <p> {{ site.memo }}</p>
+    </div>
+</div>
+
+{%- else -%}
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-5"> {{ site.title }} </h1>
+        <p> {{ site.memo }}</p>
+    </div>
+</div>
+{%- endif -%}
+
+<!-- Cards -->
 <div class="container-fluid index-container">
     {%- assign posts = site.posts -%}
     <div class="row">
         {%- for post in posts -%}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm project-card">
-                <!-- {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%} -->
-                {%- if post.title-image -%}
-                {%- assign title_img_file = site.static_files | where: "name", post.title-image -%}
-                {%- if title_img_file.size>0 -%}
-                <a href=" {{ post.permalink }} ">
-                    <img class="card-img-top" src=" {{ title_img_file[0].path }} " alt="Card image cap">
-                </a> {%- endif -%} {%- endif -%}
-                <div class="card-body">
-                    <a href=" {{ post.permalink }} ">
+    <!-- Notice: only posts with proper title image will be shown here. -->
+        {%- if post.title-image -%}
+        {%- assign title_img_file = site.static_files | where: "name", post.title-image -%}
+        {%- if title_img_file.size>0 -%}
+        <div class="col-md-4 px-4 py-4">
+            <a href=" {{ post.permalink }} ">
+                <div class="shadow-sm project-card" style="background-image: url({{title_img_file[0].path}});">
+                    <div class="card-body">
                         <h5 class="card-title"> {{ post.title }} </h5>
-                    </a>
-                    <p class="card-text"> {{ post.description }} </p>
+                        <span class="badge badge-secondary">{{ post.category }}</span>
+                        <div class="post-description">{{post.description}}</div>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
+        {%- endif -%} {%- endif -%}
         {%- endfor -%}
     </div>
 </div>
