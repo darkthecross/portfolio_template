@@ -21,7 +21,7 @@ layout: default
 {%- endif -%}
 
 <!-- Cards -->
-<div class="container-fluid index-container">
+<div class="container index-container">
     {%- assign posts = site.posts -%}
     <div class="row">
         {%- for post in posts -%}
@@ -31,11 +31,11 @@ layout: default
         {%- if title_img_file.size>0 -%}
         <div class="col-md-4 px-4 py-4">
             <a href=" {{ post.permalink }} ">
-                <div class="shadow-sm project-card" style="background-image: url({{title_img_file[0].path}});">
-                    <div class="card-body">
+                <div class="shadow-sm project-card d-flex flex-column justify-content-end" style="background-image: url({{title_img_file[0].path}});">
+                    <div class="post-body post-body-normal">
                         <h5 class="card-title"> {{ post.title }} </h5>
                         <span class="badge badge-secondary">{{ post.category }}</span>
-                        <div class="post-description">{{post.description}}</div>
+                        <div class="post-description mt-3">{{post.description}}</div>
                     </div>
                 </div>
             </a>
